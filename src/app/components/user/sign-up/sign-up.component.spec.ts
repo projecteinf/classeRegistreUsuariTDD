@@ -30,4 +30,9 @@ describe('SignUpComponent', () => {
     const compiled=fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector("label")?.textContent).toBe("Username:");
   });
+
+  it('Has label for Email', () => {
+    const compiled=fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector("label")?.textContent).toBe("Email:");
+  });
 });
