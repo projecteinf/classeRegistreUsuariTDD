@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up.component';
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,6 +16,7 @@ describe('SignUpComponent', () => {
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled=fixture.nativeElement as HTMLElement;
   });
 
   it('should create', () => {
@@ -27,17 +29,20 @@ describe('SignUpComponent', () => {
   });
 
   it('Has label for Username', () => {
-    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector("label")?.textContent).toBe("Username:");
+    expect(getNthLabelContent(0)).toBe("Username:");
   });
 
   it('Has label for Email', () => {
-    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelectorAll("label")[1]?.textContent).toBe("Email:");
+    
+    expect(getNthLabelContent(1)).toBe("Email:");
   });
 
   it('Has label for Password', () => {
-    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelectorAll("label")[2]?.textContent).toBe("Password:");
+    expect(getNthLabelContent(2)).toBe("Password:");
   });
+
+  function getNthLabelContent(index:number) {
+    return compiled.querySelectorAll("label")[index]?.textContent;
+  }
+
 });
