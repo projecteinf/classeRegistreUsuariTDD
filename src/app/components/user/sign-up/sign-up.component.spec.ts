@@ -22,17 +22,17 @@ describe('SignUpComponent', () => {
   });
 
   it('Has title Sign Up', () => {
-    const compiled=fixture.nativeElement as HTMLElement;
+    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector("h1")?.textContent).toBe("Sign Up");
   });
 
   it('Has label for Username', () => {
-    const compiled=fixture.nativeElement as HTMLElement;
+    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector("label")?.textContent).toBe("Username:");
   });
 
   it('Has label for Email', () => {
-    const compiled=fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector("label")?.textContent).toBe("Email:");
+    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelectorAll("label")[1]?.textContent).toBe("Email:");
   });
 });
