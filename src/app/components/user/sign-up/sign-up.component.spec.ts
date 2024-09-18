@@ -20,4 +20,9 @@ describe('SignUpComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Has title Sign Up', () => {
+    const compiled=fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector("h1")?.textContent).toContain("Sign Up");
+  })
 });
