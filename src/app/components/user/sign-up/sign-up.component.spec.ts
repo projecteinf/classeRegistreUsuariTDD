@@ -52,6 +52,10 @@ describe('SignUpComponent', () => {
     expect(compiled.querySelector("button")).toBeTruthy();
   });
 
+  it('Button is disabled', () => {
+    expect(compiled.querySelector("button")!.disabled).toBeTruthy();
+  });
+
   it('Has select tag for language', () => {
     const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
     expect(selectLanguage).toBeTruthy();
