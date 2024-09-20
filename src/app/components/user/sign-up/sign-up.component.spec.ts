@@ -54,6 +54,18 @@ describe('SignUpComponent', () => {
     expect(selectLanguage).toBeTruthy();
   });
 
+  it('Only languages: frances,angles,italia,catala,castella. Ordered', () => {
+    const languages=["frances","angles","italia","catala","castella"].sort();
+    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    expect(selectLanguage.options.length).toBe(languages.length);
+    let index=0;
+    languages.forEach(
+      language => {
+        expect(selectLanguage.options[index].value).toBe(language);
+        index++;
+      }
+    )
+  });
 
   function getNthLabel(index:number) {
     return compiled.querySelectorAll("label")[index];
