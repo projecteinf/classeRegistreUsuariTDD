@@ -42,8 +42,8 @@ describe('SignUpComponent', () => {
   });
 
   it('Has input of type text for Username', () => {
-    const inputUserName:HTMLElement|null = getNthLabel(0)!.querySelector("input");
-
+    const inputUserName:HTMLInputElement|null = getNthLabel(0)!.querySelector("input");
+    expect(inputUserName!.getAttribute("type")).toBe("text");
   });
 
   function getNthLabel(index:number) {
