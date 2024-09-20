@@ -41,12 +41,12 @@ describe('SignUpComponent', () => {
   });
 
   it('Has input of type text for Username', () => {
-    const inputUserName:HTMLInputElement|null = getNthLabel(0)!.querySelector("input");
+    const inputUserName:HTMLInputElement|null = getInputFromLabel(0);
     expect(inputUserName!.getAttribute("type")).toBe("text");
   });
 
   it('Has input of type email for Email', () => {
-    const inputUserName:HTMLInputElement|null = getNthLabel(1)!.querySelector("input");
+    const inputUserName:HTMLInputElement|null = getInputFromLabel(1);
     expect(inputUserName!.getAttribute("type")).toBe("email");
   });
 
@@ -54,5 +54,7 @@ describe('SignUpComponent', () => {
     return compiled.querySelectorAll("label")[index];
   }
 
-  function getInputFromLabel
+  function getInputFromLabel(labelIndex:number) {
+    return getNthLabel(labelIndex)!.querySelector("input");
+  }
 });
