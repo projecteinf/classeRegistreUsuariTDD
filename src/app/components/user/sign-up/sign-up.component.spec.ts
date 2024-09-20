@@ -33,7 +33,6 @@ describe('SignUpComponent', () => {
   });
 
   it('Has label for Email', () => {
-    
     expect(getNthLabel(1).textContent).toBe("Email: ");
   });
 
@@ -55,4 +54,5 @@ describe('SignUpComponent', () => {
     return compiled.querySelectorAll("label")[index];
   }
 
+  function getInputFromLabel
 });
