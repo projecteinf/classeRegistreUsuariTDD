@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
+  
+  getLanguages():string[] {
+    return ["frances","angles","italia","catala","castella"].sort();
+  }
+
 
 }

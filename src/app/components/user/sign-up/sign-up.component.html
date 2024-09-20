@@ -7,5 +7,9 @@
 </label>
 <label>Password:</label>
 <label>Language:
-    <select></select>
+    <select>
+        @for( language of this.getLanguages();track language) {
+            <option [value]="language">{{language}}</option>
+        } 
+    </select>
 </label>
