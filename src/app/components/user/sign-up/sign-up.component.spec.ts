@@ -41,14 +41,19 @@ describe('SignUpComponent', () => {
   });
 
   it('Has input of type text for Username', () => {
-    const inputUserName:HTMLInputElement|null = getInputFromLabel(0);
-    expect(inputUserName!.getAttribute("type")).toBe("text");
+    expect(getInputFromLabel(0)!.getAttribute("type")).toBe("text");
   });
 
   it('Has input of type email for Email', () => {
     const inputUserName:HTMLInputElement|null = getInputFromLabel(1);
     expect(inputUserName!.getAttribute("type")).toBe("email");
   });
+
+  it('Has select tag for language', () => {
+    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    expect(selectLanguage).toBeTruthy();
+  });
+
 
   function getNthLabel(index:number) {
     return compiled.querySelectorAll("label")[index];
@@ -57,4 +62,5 @@ describe('SignUpComponent', () => {
   function getInputFromLabel(labelIndex:number) {
     return getNthLabel(labelIndex)!.querySelector("input");
   }
+
 });
