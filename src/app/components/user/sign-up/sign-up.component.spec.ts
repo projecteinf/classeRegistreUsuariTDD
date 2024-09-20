@@ -24,7 +24,6 @@ describe('SignUpComponent', () => {
   });
 
   it('Has title Sign Up', () => {
-    const compiled:HTMLElement=fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector("h1")?.textContent).toBe("Sign Up");
   });
 
@@ -47,6 +46,10 @@ describe('SignUpComponent', () => {
   it('Has input of type email for Email', () => {
     const inputUserName:HTMLInputElement|null = getInputFromLabel(1);
     expect(inputUserName!.getAttribute("type")).toBe("email");
+  });
+
+  it('Has button', () => {
+    expect(compiled.querySelector("button")).toBeTruthy();
   });
 
   it('Has select tag for language', () => {
