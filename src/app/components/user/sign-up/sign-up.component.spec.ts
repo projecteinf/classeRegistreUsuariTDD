@@ -34,7 +34,7 @@ describe('SignUpComponent', () => {
 
   it('Has label for Email', () => {
     
-    expect(getNthLabel(1).textContent).toBe("Email:");
+    expect(getNthLabel(1).textContent).toBe("Email: ");
   });
 
   it('Has label for Password', () => {
@@ -44,6 +44,11 @@ describe('SignUpComponent', () => {
   it('Has input of type text for Username', () => {
     const inputUserName:HTMLInputElement|null = getNthLabel(0)!.querySelector("input");
     expect(inputUserName!.getAttribute("type")).toBe("text");
+  });
+
+  it('Has input of type email for Email', () => {
+    const inputUserName:HTMLInputElement|null = getNthLabel(1)!.querySelector("input");
+    expect(inputUserName!.getAttribute("type")).toBe("email");
   });
 
   function getNthLabel(index:number) {
