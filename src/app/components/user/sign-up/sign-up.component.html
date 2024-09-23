@@ -1,16 +1,16 @@
 <h1>Sign Up</h1>
 <label>Username:
-    <input type="text" [(ngModel)]="username" />
+    <input type="text" [(ngModel)]="this.username" />
 </label>
 <label>Email:
-    <input type="email" [(ngModel)]="email" />
+    <input type="email" [(ngModel)]="this.email" />
 </label>
 <label>Password:</label>
 <label>Language:
-    <select [(ngModel)]="language" >
-        @for( language of this.getLanguages();track language) {
+    <select [(ngModel)]="language" (change)="this.isDisabled()">
+        @for(language of this.getLanguages();track language) {
             <option [value]="language">{{language}}</option>
         } 
     </select>
 </label>
-<button (click)="save()" disabled="this.isDisabled()">Send</button>
+<button (click)="this.save()" [disabled]="this.isDisabled()">Send</button>
