@@ -2,11 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignUpComponent } from './sign-up.component';
 
-describe('SignUpComponent', () => {
-  let component: SignUpComponent;
-  let fixture: ComponentFixture<SignUpComponent>;
-  let compiled: HTMLElement;
+let component: SignUpComponent;
+let fixture: ComponentFixture<SignUpComponent>;
+let compiled: HTMLElement;
 
+function getNthLabel(index:number) {
+  return compiled.querySelectorAll("label")[index];
+}
+
+
+describe('Layout', () => {
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SignUpComponent]
@@ -52,15 +58,6 @@ describe('SignUpComponent', () => {
     expect(compiled.querySelector("button")).toBeTruthy();
   });
 
-  it('Button is disabled', () => {
-    expect(compiled.querySelector("button")!.disabled).toBeTruthy();
-  });
-
-  it('Has select tag for language', () => {
-    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
-    expect(selectLanguage).toBeTruthy();
-  });
-
   it('Only languages: frances,angles,italia,catala,castella. Ordered', () => {
     const languages=["frances","angles","italia","catala","castella"].sort();
     const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
@@ -74,12 +71,36 @@ describe('SignUpComponent', () => {
     )
   });
 
-  function getNthLabel(index:number) {
-    return compiled.querySelectorAll("label")[index];
-  }
 
   function getInputFromLabel(labelIndex:number) {
     return getNthLabel(labelIndex)!.querySelector("input");
   }
 
+});
+
+describe('SignUpComponent - Button send', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [SignUpComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(SignUpComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled=fixture.nativeElement as HTMLElement;
+  });
+
+  it('Button is disabled', () => {
+    expect(compiled.querySelector("button")!.disabled).toBeTruthy();
+  });
+
+  it('Has select tag for language', () => {
+    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    expect(selectLanguage).toBeTruthy();
+  });
+
+  it('Enable button if all data is correct', () => {
+    
+  })
 });
