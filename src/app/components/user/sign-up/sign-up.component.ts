@@ -14,7 +14,7 @@ export class SignUpComponent {
   repeatPassword!:string;
 
   getLanguages():string[] {
-    return ["frances","angles","italia","catala","castella"].sort();
+    return ["frances","angles","italia","catala","castella","gallec"].sort();
   }
 
   isDisabled():boolean {
