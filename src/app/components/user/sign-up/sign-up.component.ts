@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../../classes/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,19 +10,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-  username!:string;
-  email!:string;
-  language!:string;
+  user:User = new User();
+  repeatPassword!:string;
 
   getLanguages():string[] {
     return ["frances","angles","italia","catala","castella"].sort();
   }
 
   isDisabled():boolean {
-    return this.email==="" || this.email === undefined;
+    return !this.user.isValid(this.repeatPassword);
   }
+
+  
+
   save() {
-    console.log(this.email,this.username,this.language);
+    console.log(this.user.email,this.user.username,this.user.language);
   }
 
 }

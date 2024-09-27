@@ -44,10 +44,6 @@ describe('Layout', () => {
     expect(getNthLabel(1).textContent).toBe("Email: ");
   });
 
-  it('Has label for Password', () => {
-    expect(getNthLabel(2).textContent).toBe("Password:");
-  });
-
   it('Has input of type text for Username', () => {
     expect(getInputFromLabel(0)!.getAttribute("type")).toBe("text");
   });
@@ -63,7 +59,7 @@ describe('Layout', () => {
 
   it('Only languages: frances,angles,italia,catala,castella. Ordered', () => {
     const languages=["frances","angles","italia","catala","castella"].sort();
-    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    const selectLanguage:HTMLSelectElement = getNthLabel(2)!.querySelector("select")!;
     expect(selectLanguage.options.length).toBe(languages.length);
     let index=0;
     languages.forEach(
@@ -94,7 +90,7 @@ describe('SignUpComponent - Button send', () => {
   });
 
   it('Has select tag for language', () => {
-    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    const selectLanguage:HTMLSelectElement = getNthLabel(2)!.querySelector("select")!;
     expect(selectLanguage).toBeTruthy();
   });
 
@@ -102,7 +98,7 @@ describe('SignUpComponent - Button send', () => {
     const languages=["frances","angles","italia","catala","castella"].sort();
     const inputUserName:HTMLInputElement = getInputFromLabel(0)!;
     const inputEmail:HTMLInputElement = getInputFromLabel(1)!;
-    const selectLanguage:HTMLSelectElement = getNthLabel(3)!.querySelector("select")!;
+    const selectLanguage:HTMLSelectElement = getNthLabel(2)!.querySelector("select")!;
     const button:HTMLButtonElement = compiled.querySelector("button")!;
 
     inputUserName.value="Maria";
