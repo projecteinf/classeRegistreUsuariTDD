@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Api } from '../../../services/api';
 
-const apiURL="https://cataas.com/api/";
+
 
 @Component({
   selector: 'app-list',
@@ -13,11 +13,13 @@ const apiURL="https://cataas.com/api/";
 
 export class ListComponent implements OnInit {
 
-  constructor(private http:HttpClient) {}
+  constructor(private api:Api ) {}
+
   ngOnInit() {
-    let endPoint:string="cats?limit=350";
-    this.http.get(apiURL+endPoint).subscribe(data => {
-      console.log(data);
-    } )
-  }
+    const itemsp=25;
+      this.api.getCats(itemsp).subscribe( data => {
+        console.log(data);
+      });
+  } 
+  
 }
