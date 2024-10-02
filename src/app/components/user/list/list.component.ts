@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
 
   constructor(private http:HttpClient) {}
   ngOnInit() {
-    let endPoint:string="cats";
+    let endPoint:string="cats?limit=350";
     this.http.get(apiURL+endPoint).subscribe(data => {
       console.log(data);
     } )
