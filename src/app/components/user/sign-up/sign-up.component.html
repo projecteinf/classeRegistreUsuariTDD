@@ -11,7 +11,27 @@
       <mat-label>Leave a comment</mat-label>
       <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>email</mat-label>
+        <input matInput placeholder="Ex. nom@domini.cat" type="email">
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Ex. patata" type="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Language</mat-label>
+        <mat-select>
+          @for (language of languages; track language) {
+            <mat-option [value]="language.value">{{language.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
   </form>
+  
 
   
 <label>Username:
