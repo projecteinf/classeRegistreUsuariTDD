@@ -36,7 +36,7 @@ export class SignUpComponent {
     return !this.user.isValid(this.repeatPassword);
   }
 
-  languages: Food[] = [
+  languages: Language[] = [
     {value: 'catala', viewValue: 'Català'},
     {value: 'castella', viewValue: 'Castellà'},
     {value: 'angles', viewValue: 'Anglès'},
