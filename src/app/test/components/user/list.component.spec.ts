@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListComponent } from '../../../components/user/list/list.component';
-
-
+import { Api } from '../../../services/api';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -9,7 +10,12 @@ describe('ListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListComponent]
+      imports: [ListComponent],
+      providers: [
+        Api,
+        provideHttpClient(),
+        provideHttpClientTesting()
+    ]
     })
     .compileComponents();
 

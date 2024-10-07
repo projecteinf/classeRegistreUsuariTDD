@@ -4,7 +4,8 @@ import { provideRouter, Router, RouterLink, RouterLinkWithHref } from '@angular/
 import { routes } from '../../app.routes';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import { Api } from '../../services/api';
+import { provideHttpClient } from '@angular/common/http';
 
 
 describe('Menu routing', () => {
@@ -16,7 +17,9 @@ describe('Menu routing', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
-        provideRouter(routes)
+        provideRouter(routes),
+        provideHttpClient(),
+        Api
       ],
       imports: [AppComponent, RouterLink],
     }).compileComponents();
